@@ -7,11 +7,15 @@ export default class Order {
     items: OrderItem[];
     coupon: Coupon | undefined;
     freight: number;
+    id: string;
+    zipCode: String;
 
-    constructor (cpf: string) {
+    constructor (cpf: string, zipCode: String) {
+        this.id = ""
         this.cpf = new Cpf(cpf);
         this.items = [];
         this.freight = 0;
+        this.zipCode = zipCode
     }
 
     addItem (id: string, price: number, quantity: number) {
@@ -35,4 +39,9 @@ export default class Order {
         total += this.freight;
         return total;
     }
+
+    setId(id: string) {
+        this.id = id
+    }
+
 }

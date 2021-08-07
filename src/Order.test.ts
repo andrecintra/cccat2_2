@@ -3,12 +3,14 @@ import Order from "./Order";
 
 test("Não deve criar um pedido com CPF inválido", function () {
     const cpf = "111.111.111-11";
-    expect(() => new Order(cpf)).toThrow(new Error("Invalid CPF"));
+    const zipCode = "15092-480"
+    expect(() => new Order(cpf, zipCode)).toThrow(new Error("Invalid CPF"));
 });
 
 test("Deve criar um pedido com 3 itens", function () {
     const cpf = "778.278.412-36";
-    const order = new Order(cpf);
+    const zipCode = "15092-480"
+    const order = new Order(cpf, zipCode);
     order.addItem("1", 1000, 2);
     order.addItem("2", 5000, 1);
     order.addItem("3", 30, 3);
@@ -18,7 +20,8 @@ test("Deve criar um pedido com 3 itens", function () {
 
 test("Deve criar um pedido com cupom de desconto", function () {
     const cpf = "778.278.412-36";
-    const order = new Order(cpf);
+    const zipCode = "15092-480"
+    const order = new Order(cpf, zipCode);
     order.addItem("1", 1000, 2);
     order.addItem("2", 5000, 1);
     order.addItem("3", 30, 3);
@@ -29,7 +32,8 @@ test("Deve criar um pedido com cupom de desconto", function () {
 
 test("Deve criar um pedido com cupom de desconto expirado", function () {
     const cpf = "778.278.412-36";
-    const order = new Order(cpf);
+    const zipCode = "15092-480"
+    const order = new Order(cpf, zipCode);
     order.addItem("1", 1000, 2);
     order.addItem("2", 5000, 1);
     order.addItem("3", 30, 3);
